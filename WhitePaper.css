@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  padding-left: 140px;
+  background-color: #57585a;
+}
+
+.page {
+  padding-left: 5%;
+}
+
+.app-header {
+  background-color: #57585a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  zoom: 221%;
+}
+
+.col {
+  height: 100%;
+}

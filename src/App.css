@@ -1,0 +1,8 @@
+.login-background {
+  background-size: cover;
+  min-height: 380px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
