@@ -9,7 +9,7 @@ function DashBoard() {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+    axios.get('https://api.binance.com/api/v3/ticker/price')
       .then(res => {
         setCoins(res.data)
       })
@@ -23,7 +23,7 @@ function DashBoard() {
   // function that allows us to filter coins and displays what we type in
   // make everything we type in to match with search by lowercasing both sides
   const filteredCoins = coins.filter(coin =>
-    coin.name.toLowerCase().includes(search.toLowerCase())
+    coin.symbol.toLowerCase().includes(search.toLowerCase())
   )
 
 
@@ -35,7 +35,7 @@ function DashBoard() {
           <div className="coin-search">
             <h1 className="coin-text">Search a currency:</h1>
             <form>
-              <input type="text" placeholder="Search" className="coin-input" onChange={handleChange} />
+              <input type="text" placeholder="Search" className="coin-input" disabled={true} onChange={handleChange} />
             </form>
           </div>
         </Col>
@@ -45,14 +45,14 @@ function DashBoard() {
       {filteredCoins.map(coin => {
         return (
           <Coin
-            key={coin.id}
-            name={coin.name}
-            image={coin.image}
+            // key={coin.id}
+            // name={coin.name}
+            // image={coin.image}
             symbol={coin.symbol}
-            marketcap={coin.market_cap}
-            price={coin.current_price}
-            priceChange={Math.round(coin.price_change_percentage_24h * 100) / 100}
-            volume={coin.total_volume}
+            // marketcap={coin.market_cap}
+            price={coin.price}
+            // priceChange={Math.round(coin.price_change_percentage_24h * 100) / 100}
+            // volume={coin.total_volume}
           />)
       })}
     </div>
